@@ -2,21 +2,27 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Home from './pages/home/Home';
 import Signup from './pages/signup/Signup';
 import Login from './pages/login/Login';
+import Navbar from './components/Navbar';
 
 const App = () => (
-  <div>
+  <div className="min-h-screen">
     <BrowserRouter>
-      <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-      </Switch>
+      <Navbar />
+      <div className="p-5">
+        <div className="max-w-5xl mx-auto">
+          <Switch>
+            <Route path="/" exact>
+              <Home />
+            </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
+            <Route path="/signup">
+              <Signup />
+            </Route>
+          </Switch>
+        </div>
+      </div>
     </BrowserRouter>
   </div>
 );
