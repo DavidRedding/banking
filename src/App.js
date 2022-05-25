@@ -8,21 +8,17 @@ const App = () => (
   <div className="min-h-screen">
     <BrowserRouter>
       <Navbar />
-      <div className="p-5">
-        <div className="max-w-5xl mx-auto">
-          <Switch>
-            <Route path="/" exact>
-              <Home />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="/signup">
-              <Signup />
-            </Route>
-          </Switch>
-        </div>
-      </div>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/login">
+          <Login />
+        </Route>
+        <Route path="/signup">
+          <Signup />
+        </Route>
+      </Switch>
     </BrowserRouter>
   </div>
 );
