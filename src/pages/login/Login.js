@@ -27,8 +27,8 @@ const Login = () => {
       <label className="block my-7">
         <span className="block mb-1">password :</span>
         <input
-          type="text"
-          className="w-full px-2 py-1 border border-gray-500 "
+          type="password"
+          className="w-full px-2 py-1 border border-gray-500"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
