@@ -1,14 +1,16 @@
 import { useState } from 'react';
+import { useSignup } from '../../hooks/useSignup';
+// prettier-ignore
 
 const Signup = () => {
   const [displayName, setDisplayName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const { signup, isPending, error } = useSignup();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const credentials = { displayName, email, password };
-    console.log(credentials);
+    signup(email, password, displayName);
   };
 
   return (
@@ -45,9 +47,18 @@ const Signup = () => {
         />
       </label>
 
-      <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
-        Sign Up
-      </button>
+      {isPending && (
+        <button disabled className="block px-3 py-1 text-gray-600 border border-gray-600 rounded hover:bg-green-600 hover:text-green-50"
+        >
+          Loading...
+        </button>
+      )}
+      {!isPending && (
+        <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
+          Sign Up
+        </button>
+      )}
+      {error && <p>{error}</p>}
     </form>
   );
 };
