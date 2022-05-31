@@ -47,17 +47,18 @@ const Signup = () => {
         />
       </label>
 
+      {!isPending && (
+        <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
+          Sign Up
+        </button>
+      )}
       {isPending && (
         <button disabled className="block px-3 py-1 text-gray-600 border border-gray-600 rounded hover:bg-green-600 hover:text-green-50"
         >
           Loading...
         </button>
       )}
-      {!isPending && (
-        <button className="block px-3 py-1 text-green-600 border border-green-600 rounded hover:bg-green-600 hover:text-green-50">
-          Sign Up
-        </button>
-      )}
+      
       {error && <p>{error}</p>}
     </form>
   );
